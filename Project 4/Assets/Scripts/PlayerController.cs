@@ -7,6 +7,7 @@ public class PlayerController : MonoBehaviour
     public float moveSpeed = 5;
     private float _horizontalInput;
     public float xRange = 8.45f;
+    public GameObject projectilePrefab;
 
     // Start is called before the first frame update
     void Start()
@@ -17,9 +18,18 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        _horizontalInput = Input.GetAxis("Horizontal");
-        transform.Translate(Vector3.right * _horizontalInput * moveSpeed * Time.deltaTime);
+    PlayerMovement();
+    if (Input.GetMouseButtonDown(0))
+    {
+        Instantiate(projectilePrefab, transform.position, projectilePrefab.transform.rotation);
+    }
+    
 
+    }
+    void PlayerMovement()
+    {
+       _horizontalInput = Input.GetAxis("Horizontal");
+        transform.Translate(Vector3.right * _horizontalInput * moveSpeed * Time.deltaTime);
         if(transform.position.x > xRange)
         {
             transform.position = new Vector3(xRange, transform.position.y, transform.position.z );
