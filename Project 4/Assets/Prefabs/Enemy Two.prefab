@@ -99,7 +99,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   topBound: 100
-  lowerBound: -5.5
+  lowerBound: -6
 --- !u!114 &471859430
 MonoBehaviour:
   m_ObjectHideFlags: 0
